@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useAuth } from '../auth/AuthContext';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 
 const RegisterPage = () => {
   const { register } = useAuth();
@@ -19,11 +19,18 @@ const RegisterPage = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <input placeholder='Email' value={email} onChange={e => setEmail(e.target.value)} />
-      <input type='password' placeholder='Password' value={password} onChange={e => setPassword(e.target.value)} />
-      <button type='submit'>Register</button>
-    </form>
+    <div className="page">
+      <div className="card">
+        <form className="auth-form" onSubmit={handleSubmit}>
+          <h2>Create account</h2>
+          <input placeholder="Email" value={email} onChange={e => setEmail(e.target.value)} />
+          <input type="password" placeholder="Password" value={password} onChange={e => setPassword(e.target.value)} />
+          <button type="submit" className="primary">Register</button>
+          <div className="muted">By registering you accept the terms.</div>
+          <div className="muted">Already have an account? <Link to="/login">Log In</Link></div>
+        </form>
+      </div>
+    </div>
   );
 };
 

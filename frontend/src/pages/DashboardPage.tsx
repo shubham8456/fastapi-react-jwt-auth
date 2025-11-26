@@ -5,9 +5,14 @@ const DashboardPage = () => {
   const { user, logout } = useAuth();
 
   return (
-    <div>
-      <h1>Welcome, {user?.email}</h1>
-      <button onClick={logout}>Logout</button>
+    <div className="page">
+      <div className="card">
+        <div className="top-actions">
+          <button className="btn" onClick={logout}>Logout</button>
+        </div>
+        <div className="welcome">Welcome, {user?.email}</div>
+        <div className="muted">This is your dashboard.</div>
+      </div>
     </div>
   );
 };
