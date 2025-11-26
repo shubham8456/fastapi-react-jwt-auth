@@ -1,7 +1,9 @@
 import axios, { AxiosError } from 'axios';
 
+const baseURL = (import.meta as any).env?.VITE_BACKEND_URL || 'http://localhost:8000';
+
 const httpClient = axios.create({
-  baseURL: 'http://localhost:8000',
+  baseURL,
   withCredentials: true,
 });
 
